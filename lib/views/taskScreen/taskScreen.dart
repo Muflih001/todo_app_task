@@ -13,7 +13,7 @@ class TaskScreen extends StatefulWidget {
 }
 
 class _TaskScreenState extends State<TaskScreen> {
-  TextEditingController _taskController = TextEditingController();
+  final TextEditingController _taskController = TextEditingController();
   var taskBox = Hive.box('taskBox');
   Map<String, List<Task>> tasks = {};
 
@@ -51,7 +51,7 @@ class _TaskScreenState extends State<TaskScreen> {
         ),
         floatingActionButton: FloatingActionButton(
           backgroundColor: Colorconstants.LightThemeTextColor,
-          shape: CircleBorder(),
+          shape: const CircleBorder(),
           onPressed: () {
             _showCustomDialog(context);
           },
@@ -71,7 +71,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 return Container();
               }
             },
-            separatorBuilder: (context, index) => SizedBox(
+            separatorBuilder: (context, index) => const SizedBox(
                   height: 5,
                 ),
             itemCount: tasks[widget.category] != null
@@ -88,7 +88,7 @@ class _TaskScreenState extends State<TaskScreen> {
             borderRadius: BorderRadius.circular(10.0),
           ),
           child: Container(
-            padding: EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.0),
@@ -99,7 +99,7 @@ class _TaskScreenState extends State<TaskScreen> {
                 Expanded(
                   child: TextField(
                     controller: _taskController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       hintText: 'Type your task...',
                       border: InputBorder.none,
                     ),
@@ -118,7 +118,7 @@ class _TaskScreenState extends State<TaskScreen> {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.close),
+                  icon: const Icon(Icons.close),
                   onPressed: () {
                     Navigator.of(context).pop();
                   },

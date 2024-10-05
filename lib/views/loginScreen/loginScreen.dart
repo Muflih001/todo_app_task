@@ -13,20 +13,20 @@ class Loginscreen extends StatefulWidget {
 }
 
 class _LoginscreenState extends State<Loginscreen> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
   bool _obscurePassword = true;
   @override
   Widget build(BuildContext context) {
-    final _formKey = GlobalKey<FormState>();
+    final formKey = GlobalKey<FormState>();
     return Scaffold(
       backgroundColor: Colorconstants.LightThemeBackgroundColor,
       body: SafeArea(
           child: Padding(
         padding: const EdgeInsets.all(15.0),
         child: Form(
-          key: _formKey,
+          key: formKey,
           child: ListView(
             // physics: NeverScrollableScrollPhysics(),
             children: [
@@ -43,7 +43,7 @@ class _LoginscreenState extends State<Loginscreen> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               Row(
@@ -59,7 +59,7 @@ class _LoginscreenState extends State<Loginscreen> {
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               TextFormField(
@@ -69,13 +69,13 @@ class _LoginscreenState extends State<Loginscreen> {
                 style: TextStyle(color: Colorconstants.LightThemeTextColor),
                 decoration: InputDecoration(
                   hintText: 'Email',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  border: const OutlineInputBorder(borderSide: BorderSide.none),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 2),
+                      borderSide: const BorderSide(color: Colors.grey, width: 2),
                       borderRadius: BorderRadius.circular(5)),
                   enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 2),
+                      borderSide: const BorderSide(color: Colors.grey, width: 2),
                       borderRadius: BorderRadius.circular(5)),
                 ),
                 validator: (value) {
@@ -88,7 +88,7 @@ class _LoginscreenState extends State<Loginscreen> {
                   }
                 },
               ),
-              SizedBox(
+              const SizedBox(
                 height: 25,
               ),
               TextFormField(
@@ -99,13 +99,13 @@ class _LoginscreenState extends State<Loginscreen> {
                 style: TextStyle(color: Colorconstants.LightThemeTextColor),
                 decoration: InputDecoration(
                   hintText: 'Password',
-                  hintStyle: TextStyle(color: Colors.grey),
-                  border: OutlineInputBorder(borderSide: BorderSide.none),
+                  hintStyle: const TextStyle(color: Colors.grey),
+                  border: const OutlineInputBorder(borderSide: BorderSide.none),
                   focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 2),
+                      borderSide: const BorderSide(color: Colors.grey, width: 2),
                       borderRadius: BorderRadius.circular(5)),
                   enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey, width: 2),
+                      borderSide: const BorderSide(color: Colors.grey, width: 2),
                       borderRadius: BorderRadius.circular(5)),
                   suffixIcon: IconButton(
                     // Add a suffix icon
@@ -137,7 +137,7 @@ class _LoginscreenState extends State<Loginscreen> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => Forgetpasswordscreen(),
+                              builder: (context) => const Forgetpasswordscreen(),
                             ));
                       },
                       child: Text(
@@ -150,7 +150,7 @@ class _LoginscreenState extends State<Loginscreen> {
                       )),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 80,
               ),
               InkWell(
@@ -167,13 +167,13 @@ class _LoginscreenState extends State<Loginscreen> {
                     Navigator.pushAndRemoveUntil(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => HomeScreen(),
+                        builder: (context) => const HomeScreen(),
                       ),
                       (Route<dynamic> route) => false,
                     );
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         backgroundColor: Colors.red,
                         content: Text('Invalid username or password'),
                       ),
@@ -184,8 +184,11 @@ class _LoginscreenState extends State<Loginscreen> {
                   });
                 },
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 15),
+                  padding: const EdgeInsets.symmetric(horizontal: 15),
                   height: 50,
+                  decoration: BoxDecoration(
+                      color: Colorconstants.ThemeColor,
+                      borderRadius: BorderRadius.circular(5)),
                   child: Center(
                     child: _isLoading
                         ? CircularProgressIndicator()
@@ -197,18 +200,15 @@ class _LoginscreenState extends State<Loginscreen> {
                                 fontSize: 17),
                           ),
                   ),
-                  decoration: BoxDecoration(
-                      color: Colorconstants.ThemeColor,
-                      borderRadius: BorderRadius.circular(5)),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Don't have an account?",
                     style: TextStyle(
                       color: Colors.grey,

@@ -8,7 +8,7 @@ class CategoryCard extends StatelessWidget {
   final String emoji;
   final VoidCallback onDelete; // Callback for delete action
 
-  CategoryCard({
+  const CategoryCard({super.key, 
     required this.category,
     required this.emoji,
     required this.onDelete, // Pass delete callback from parent
@@ -35,20 +35,20 @@ class CategoryCard extends StatelessWidget {
                 children: [
                   Text(
                     emoji,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 40,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   Text(
                     category,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(height: 5),
-                  Text(
+                  const SizedBox(height: 5),
+                  const Text(
                     'task',
                     style: TextStyle(
                       fontSize: 16,

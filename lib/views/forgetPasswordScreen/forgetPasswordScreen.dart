@@ -11,7 +11,7 @@ class Forgetpasswordscreen extends StatefulWidget {
 }
 
 class _ForgetpasswordscreenState extends State<Forgetpasswordscreen> {
-  TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool _isLoading = false;
   @override
@@ -129,6 +129,10 @@ class _ForgetpasswordscreenState extends State<Forgetpasswordscreen> {
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   height: 50,
+                  decoration: BoxDecoration(
+                    color: Colorconstants.ThemeColor,
+                    borderRadius: BorderRadius.circular(5),
+                  ),
                   child: Center(
                     child: _isLoading
                         ? const CircularProgressIndicator()
@@ -140,10 +144,6 @@ class _ForgetpasswordscreenState extends State<Forgetpasswordscreen> {
                               fontSize: 17,
                             ),
                           ),
-                  ),
-                  decoration: BoxDecoration(
-                    color: Colorconstants.ThemeColor,
-                    borderRadius: BorderRadius.circular(5),
                   ),
                 ),
               ),

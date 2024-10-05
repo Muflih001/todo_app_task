@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           create: (context) => Settingsscreencontroller(),
         )
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
         home: SplashScreen(),
       ),

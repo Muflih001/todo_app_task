@@ -147,8 +147,8 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _showAddCategoryDialog() {
-    TextEditingController _categoryController = TextEditingController();
-    TextEditingController _emojiController = TextEditingController();
+    TextEditingController categoryController = TextEditingController();
+    TextEditingController emojiController = TextEditingController();
 
     showDialog(
       context: context,
@@ -160,11 +160,11 @@ class _HomeScreenState extends State<HomeScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               TextField(
-                controller: _emojiController,
+                controller: emojiController,
                 decoration: const InputDecoration(hintText: 'Enter emoji'),
               ),
               TextField(
-                controller: _categoryController,
+                controller: categoryController,
                 decoration: const InputDecoration(hintText: 'Enter category name'),
               ),
             ],
@@ -180,8 +180,8 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                 setState(() {
                   categoryBox.add({
-                    'title': _categoryController.text,
-                    'emoji': _emojiController.text,
+                    'title': categoryController.text,
+                    'emoji': emojiController.text,
                   });
                 });
                 categoryKeys = categoryBox.keys.toList();

@@ -16,7 +16,7 @@ class Welcomescreen extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 60,
                 ),
                 Text(
@@ -26,7 +26,7 @@ class Welcomescreen extends StatelessWidget {
                       fontSize: 30,
                       fontWeight: FontWeight.w500),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 40,
                 ),
                 Column(
@@ -48,18 +48,21 @@ class Welcomescreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Spacer(),
+                const Spacer(),
                 InkWell(
                   onTap: () {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => Loginscreen(),
+                          builder: (context) => const Loginscreen(),
                         ));
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     height: 45,
+                    decoration: BoxDecoration(
+                        color: Colorconstants.ThemeColor,
+                        borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
                         "LOGIN",
@@ -69,12 +72,9 @@ class Welcomescreen extends StatelessWidget {
                             fontSize: 17),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                        color: Colorconstants.ThemeColor,
-                        borderRadius: BorderRadius.circular(5)),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 InkWell(
@@ -86,8 +86,13 @@ class Welcomescreen extends StatelessWidget {
                         ));
                   },
                   child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 15),
+                    padding: const EdgeInsets.symmetric(horizontal: 15),
                     height: 45,
+                    decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colorconstants.ThemeColor,
+                        ),
+                        borderRadius: BorderRadius.circular(5)),
                     child: Center(
                       child: Text(
                         "CREATE ACCOUNT",
@@ -97,11 +102,6 @@ class Welcomescreen extends StatelessWidget {
                             fontSize: 17),
                       ),
                     ),
-                    decoration: BoxDecoration(
-                        border: Border.all(
-                          color: Colorconstants.ThemeColor,
-                        ),
-                        borderRadius: BorderRadius.circular(5)),
                   ),
                 ),
               ],

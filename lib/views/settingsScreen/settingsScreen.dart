@@ -18,7 +18,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   File? _selectedImage;
   bool _isEditing = false;
-  TextEditingController _nameController = TextEditingController();
+  final TextEditingController _nameController = TextEditingController();
   var profileBox = Hive.box<dynamic>('profileBox');
   var categoryBox = Hive.box<dynamic>('categoryBox');
   List categoryKeys = [];
@@ -60,7 +60,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Row(
@@ -72,13 +72,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
                             : AssetImage(
                                 Imageconstants.avatar), // default avatar image
                       ),
-                      SizedBox(
+                      const SizedBox(
                           width: 10), // spacing between avatar and username
                       _isEditing
                           ? Expanded(
                               child: TextField(
                                 controller: _nameController,
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Username',
                                   border: OutlineInputBorder(),
                                 ),
@@ -92,7 +92,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                 fontWeight: FontWeight.w500,
                               ),
                             ),
-                      Spacer(),
+                      const Spacer(),
                       Container(
                         height: 50,
                         width: 50,
@@ -133,16 +133,16 @@ class _SettingsScreenState extends State<SettingsScreen> {
                                   setState(() {});
                                 }
                               },
-                              icon: Icon(Icons.camera_alt),
+                              icon: const Icon(Icons.camera_alt),
                             )
                           : Container(), // Hide camera icon when not editing
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 20,
                   ),
                   ListTile(
-                    leading: Icon(Icons.notifications),
+                    leading: const Icon(Icons.notifications),
                     title: Text(
                       'Notifications',
                       style: TextStyle(
@@ -154,7 +154,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.settings),
+                    leading: const Icon(Icons.settings),
                     title: Text(
                       'General',
                       style: TextStyle(
@@ -166,7 +166,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.person),
+                    leading: const Icon(Icons.person),
                     title: Text(
                       'Account',
                       style: TextStyle(
@@ -179,7 +179,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.person),
+                    leading: const Icon(Icons.person),
                     title: Text(
                       'Delete All Category',
                       style: TextStyle(
@@ -192,7 +192,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     },
                   ),
                   ListTile(
-                    leading: Icon(Icons.info),
+                    leading: const Icon(Icons.info),
                     title: Text(
                       'About',
                       style: TextStyle(
@@ -203,7 +203,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       Navigator.pop(context);
                     },
                   ),
-                  Spacer(),
+                  const Spacer(),
                   ListTile(
                     leading: Icon(
                       Icons.logout_outlined,
@@ -219,7 +219,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     onTap: () {
                       Navigator.pushAndRemoveUntil(
                         context,
-                        MaterialPageRoute(builder: (context) => Loginscreen()),
+                        MaterialPageRoute(builder: (context) => const Loginscreen()),
                         (Route<dynamic> route) => false,
                       );
                     },
@@ -240,7 +240,7 @@ class ProfileContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Row(
+      child: const Row(
         children: [
           CircleAvatar(),
           Text(
